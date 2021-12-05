@@ -8,6 +8,12 @@
       "type": "shell",
       "command": "scripts/dev.sh",
       "detail": "Start Flask dev server"
+    },
+    {
+      "label": "start",
+      "type": "shell",
+      "command": "scripts/start.sh",
+      "detail": "Start gunicorn production server"
     }
   ]
 }
