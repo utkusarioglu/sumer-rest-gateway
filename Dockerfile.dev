@@ -2,6 +2,7 @@ FROM python:alpine
 RUN apk add git --no-cache
 RUN apk add vim --no-cache
 RUN apk add curl --no-cache
+RUN pip install pipenv
 
 # from https://github.com/cli/cli/issues/658
 RUN mkdir /ghcli
