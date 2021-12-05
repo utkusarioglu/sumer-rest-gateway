@@ -1,0 +1,12 @@
+{
+  "name": "rest-gateway",
+  "dockerComposeFile": ["../docker-compose.dev.yml", "docker-compose.yml"],
+  "service": "rest-gateway",
+  "workspaceFolder": "/usr/src/app/rest-gateway",
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#880000"
+    }
+  },
+  "extensions": []
+}
