@@ -1,4 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-export FLASK_APP=src/app
-python3 -m flask run
+pipenv run python src/app.py
