@@ -17,9 +17,10 @@ def create_app():
   app.config.from_object("config")
   crete_apis(app)
   
-  @app.route("/")
-  def hi():
-    return "hi"
+  # This shall be removed once metrics is implemented
+  @app.route("/_status/healthz")
+  def health_ok():
+    return "OK"
 
   return app
 
