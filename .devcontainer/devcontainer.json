@@ -8,5 +8,6 @@
       "activityBar.background": "#880000"
     }
   },
-  "extensions": []
+  "extensions": [],
+  "postCreateCommand": "scripts/post-create-command.sh"
 }
