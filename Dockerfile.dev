@@ -1,13 +1,9 @@
-FROM python:alpine
-RUN apk add git --no-cache
-RUN apk add vim --no-cache
-RUN apk add curl --no-cache
+FROM python
+RUN pip install gunicorn[gevent]
+RUN apt-get update
+RUN apt-get install vim -y
 RUN pip install pipenv
-
-# from https://github.com/cli/cli/issues/658
-RUN mkdir /ghcli
-WORKDIR /ghcli
-RUN wget https://github.com/cli/cli/releases/download/v2.3.0/gh_2.3.0_linux_386.tar.gz -O ghcli.tar.gz
-RUN tar --strip-components=1 -xf ghcli.tar.gz
-RUN mv /ghcli/bin/gh /usr/bin/
-RUN rm -rf /ghcli
+RUN apt update
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+RUN apt update && apt install gh
