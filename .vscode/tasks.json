@@ -14,6 +14,16 @@
       "type": "shell",
       "command": "scripts/start.sh",
       "detail": "Start gunicorn production server"
+    },
+    {
+      "label": "bridge-to-kubernetes.resource",
+      "type": "bridge-to-kubernetes.resource",
+      "resource": "rest-gateway",
+      "resourceType": "service",
+      "ports": [80],
+      "targetCluster": "docker-desktop",
+      "targetNamespace": "sumer",
+      "useKubernetesServiceEnvironmentVariables": true
     }
   ]
 }

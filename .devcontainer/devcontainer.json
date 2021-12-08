@@ -8,6 +8,10 @@
       "activityBar.background": "#880000"
     }
   },
-  "extensions": ["ms-python.python"],
+  "extensions": [
+    "ms-python.python",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "mindaro.mindaro"
+  ],
   "postCreateCommand": "scripts/post-create-command.sh"
 }
