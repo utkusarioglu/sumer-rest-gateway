@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY rest-gateway rest-gateway
 
 WORKDIR /usr/src/app/rest-gateway
-RUN pipenv install --system
+RUN pipenv install --system --deploy
 RUN pip install gunicorn[gevent]
 
 EXPOSE 80
