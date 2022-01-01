@@ -27,6 +27,29 @@ spec:
       serviceAccountName: {{ include "..serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: env-ic
+          image: "{{ .Values.envIcImage.repository }}:{{ .Values.envIcImage.tag }}"
+          imagePullPolicy: {{ .Values.envIcImage.pullPolicy }}
+          env:
+            - name: NODE_ENV
+              value: {{ .Values.appEnv | quote }}
+            - name: LOG_LEVEL
+              value: {{ .Values.logLevel | quote }}
+            - name: RESTART_TIMEOUT
+              value: {{ .Values.restartTimeout | quote }}
+            - name: VARS_TO_CHECK
+              value: {{ .Values.varsToCheck | quote }}
+        - name: kafka-consumer-ic
+          image: "{{ .Values.kafkaConsumerIcImage.repository }}:{{ .Values.kafkaConsumerIcImage.tag }}"
+          imagePullPolicy: "{{ .Values.kafkaConsumerIcImage.pullPolicy }}"
+          env:
+            - name: NODE_ENV
+              value: {{ .Values.appEnv | quote }}
+            - name: KAFKA_BROKERS
+              value: {{ .Values.kafkaBrokers | quote }}
+            - name: KAFKA_TOPIC
+              value: {{ .Values.kafkaIcTopic | quote }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
