@@ -35,7 +35,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 6000
 
 ingress:
   enabled: false
@@ -81,3 +81,4 @@ tolerations: []
 affinity: {}
 
 appEnv: production
+appPort: 6000

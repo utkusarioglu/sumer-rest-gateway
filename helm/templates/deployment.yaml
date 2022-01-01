@@ -34,17 +34,17 @@ spec:
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
+            - name: app-port
+              containerPort: {{ .Values.appPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /_status/healthz
-              port: http
+              port: app-port
           readinessProbe:
             httpGet:
               path: /_status/healthz
-              port: http
+              port: app-port
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
