@@ -3,14 +3,12 @@ class BaseConfig():
   TESTING = False
   DEBUG = False
 
-class DevConfig(BaseConfig):
-  FLASK_ENV = "development"
+class DevelopmentConfig(BaseConfig):
   DEBUG = True
 
 class ProductionConfig(BaseConfig):
-  FLASK_ENV = "production"
+  pass
 
 class TestConfig(BaseConfig):
-  FLASK_ENV = "development"
   TESTING = True
   DEBUG = True
