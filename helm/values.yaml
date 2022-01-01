@@ -45,7 +45,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 6000
+  port: 5000
 
 ingress:
   enabled: false
@@ -96,4 +96,4 @@ kafkaIcTopic: ethereum-block-content
 logLevel: info
 varsToCheck: NODE_ENV,LOG_LEVEL
 restartTimeout: 5000
-appPort: 6000
+appPort: 5000
