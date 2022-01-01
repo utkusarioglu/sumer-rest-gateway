@@ -7,5 +7,6 @@ WORKDIR /usr/src/app/rest-gateway
 RUN pipenv install --system --deploy
 RUN pip install gunicorn[gevent]
 
-EXPOSE 80
+ARG PORT
+EXPOSE $PORT
 ENTRYPOINT scripts/start.sh
