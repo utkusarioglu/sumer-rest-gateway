@@ -81,4 +81,5 @@ tolerations: []
 affinity: {}
 
 appEnv: production
+logLevel: info
 appPort: 6000

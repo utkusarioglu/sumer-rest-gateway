@@ -49,7 +49,11 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: APP_ENV
-              value: {{ .Values.appEnv }}
+              value: {{ .Values.appEnv | quote }}
+            - name: LOG_LEVEL
+              value: {{ .Values.logLevel | quote }}
+            - name: FLASK_RUN_PORT
+              value: {{ .Values.appPort | quote }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
