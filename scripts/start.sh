@@ -3,8 +3,8 @@
 gunicorn \
   --chdir /usr/src/app/rest-gateway/src \
   --worker-class gevent \
-  --workers 4 \
-  --bind 0.0.0.0:80 \
+  --workers 1 \
+  --bind 0.0.0.0:$APP_PORT \
   wsgi:app \
   --max-requests 10000 \
   --timeout 5 \
