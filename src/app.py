@@ -25,6 +25,10 @@ def create_app():
   def health_ok():
     return "OK"
 
+  @app.route("/rest/hello")
+  def hell_route():
+    return {"message": "hello2"}
+
   return app
 
 if __name__ == "__main__":
