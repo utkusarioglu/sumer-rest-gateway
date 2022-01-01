@@ -71,7 +71,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: APP_ENV
+            - name: FLASK_ENV
               value: {{ .Values.appEnv | quote }}
             - name: LOG_LEVEL
               value: {{ .Values.logLevel | quote }}
