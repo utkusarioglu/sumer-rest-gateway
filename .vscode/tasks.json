@@ -20,7 +20,7 @@
       "type": "bridge-to-kubernetes.resource",
       "resource": "rest-gateway",
       "resourceType": "service",
-      "ports": [80],
+      "ports": [6000],
       "targetCluster": "docker-desktop",
       "targetNamespace": "sumer",
       "useKubernetesServiceEnvironmentVariables": true
